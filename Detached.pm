@@ -46,7 +46,7 @@ sub message_arrived {
   my @result = ($msg);
 
   # client がなければ im.kayac.com する
-  return unless (@{RunLoop->shared->clients} == 0);
+  return @result unless (@{RunLoop->shared->clients} == 0);
 
   # サーバーからのメッセージか？
   if ($sender->isa('IrcIO::Server')) {
